@@ -5,9 +5,11 @@ $loader = new \Phalcon\Autoload\Loader();
 /**
  * We're a registering a set of directories taken from the configuration file
  */
-$loader->setDirectories(
-    [
+$loader->setDirectories([
         $config->application->controllersDir,
         $config->application->modelsDir
-    ]
-)->register();
+    ])
+    ->setFiles([
+        APP_PATH . '/library/helpers.php',
+    ])
+    ->register();
